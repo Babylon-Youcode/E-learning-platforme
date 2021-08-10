@@ -58,7 +58,7 @@ class UserController extends Controller
             "email.exists" => " This email is not exists on users table",
         ]);
         $creds = $request->only('email', 'password');
-        if (Auth::attempt($creds)) {
+        if (Auth::guard('web')->attempt($creds)) {
             return redirect()->route('user.home');
         } else {
             return redirect()->route('user.login')->with('fail', 'Incorrect credentials');

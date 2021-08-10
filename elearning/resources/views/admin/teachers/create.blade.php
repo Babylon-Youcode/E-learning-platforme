@@ -51,7 +51,7 @@
             <div class="col-xs-12 col-sm-12 col-md-12">
                 <div class="form-group">
                     <strong>Confirme Password:</strong>
-                    <input type="text" name="password" class="form-control">
+                    <input type="password" name="password" class="form-control">
                 </div>
             </div>
             <div class="col-xs-12 col-sm-12 col-md-12 text-center">
