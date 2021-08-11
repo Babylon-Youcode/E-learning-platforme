@@ -17,7 +17,7 @@ class CreateEnroleTable extends Migration
             $table->bigIncrements('id');
             $table->timestamps();
             $table->foreignId('lessons_id')->constrained('lessons');
-            $table->foreignId('students_id')->constrained('students');
+            $table->foreignId('users_id')->constrained('users');
         });
     }
 

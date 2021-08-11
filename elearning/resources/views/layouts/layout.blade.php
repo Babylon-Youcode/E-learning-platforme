@@ -40,7 +40,7 @@
             <li class="nav-item active">
                 <a class="nav-link" href="index.html">
                     <i style='font-size:24px' class='fas'>&#xf501;</i>
-                    <span>Students</span></a>
+                    <span>Users</span></a>
             </li>
 
 
