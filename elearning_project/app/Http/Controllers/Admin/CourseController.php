@@ -96,7 +96,7 @@ class CourseController extends Controller
             'price' => 'required',
             'detail' => 'required',
         ]);
-        Course::update($request->all());
+        $course->update($request->all());
 
         return redirect()->route('admin.course.all')
             ->with('success', 'course updated successfully.');
@@ -110,6 +110,7 @@ class CourseController extends Controller
      */
     public function destroy(Course $course)
     {
+
         $course->delete();
 
         return redirect()->route('admin.course.all')

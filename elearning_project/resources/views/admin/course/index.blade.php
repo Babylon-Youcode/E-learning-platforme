@@ -7,7 +7,7 @@
                 <h3>All Courses</h3>
             </div>
             <div class="pull-right">
-                <a class="btn btn-success" href="{{ route('admin.course.create') }}">Add Teacher</a>
+                <a class="btn btn-success" href="{{ route('admin.course.create') }}">Add Courses</a>
             </div>
         </div>
     </div>
@@ -34,17 +34,17 @@
                 <td>{{ $course->detail }}</td>
                 <td>{{ $course->User->name }}</td>
                 <td>
-                    <form action="{{ route('admin.course.destroy',$course->id) }}" method="POST">
+
 
                         <a class="btn btn-info" href="{{ route('admin.course.show',$course->id) }}">Show</a>
 
+
                         <a class="btn btn-primary" href="{{ route('admin.course.edit',$course->id) }}">Edit</a>
 
-                        @csrf
-                        @method('DELETE')
+                        <a class="btn btn-danger" href="{{ route('admin.course.destroy',$course->id) }}">Delete</a>
 
-                        <button type="submit" class="btn btn-danger">Delete</button>
-                    </form>
+
+
                 </td>
             </tr>
         @endforeach

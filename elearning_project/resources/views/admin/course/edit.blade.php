@@ -21,7 +21,7 @@
         </div>
     @endif
 
-        <form action="{{ route('admin.edit') }}" method="POST">
+        <form action="{{ route('admin.course.edit') }}" method="POST">
             @csrf
             <input type="hidden" name="users_id" value="{{Auth::user()->id}}">
             <div class="row">
