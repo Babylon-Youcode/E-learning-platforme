@@ -17,16 +17,13 @@ class CreateCoursesTable extends Migration
 
             $table->id();
             $table->string('name');
-            $table->string('email')->unique();
-            $table->timestamp('email_verified_at')->nullable();
-            $table->string('role', 100)->default('USR')->comment('USR = user, ADM = admin, TAC = teacher');
-            $table->string('password');
+            $table->string('date');
+            $table->string('price');
+            $table->string('detail');
             $table->rememberToken();
             $table->timestamps();
             $table->unsignedBigInteger('users_id');
             $table->index('users_id','if_courses_users_idx');
-
-
             $table->foreign('users_id','if_courses_users_idx')->references('id')->on('users')->onDelete('no action')->onUpdate('no action');
 
         });
