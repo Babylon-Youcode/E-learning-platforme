@@ -5,7 +5,7 @@
     <div class="row" style="margin-bottom: 20px;">
         <div class="col-lg-12 margin-tb">
             <div class="pull-left">
-                <h3>Edit Course</h3>
+                <h3>Update Teacher</h3>
             </div>
         </div>
     </div>
@@ -21,36 +21,37 @@
         </div>
     @endif
 
-        <form action="{{ route('admin.course.edit') }}" method="POST">
+        <form action="{{ route('admin.user.store') }}" method="POST">
             @csrf
             <input type="hidden" name="users_id" value="{{Auth::user()->id}}">
             <div class="row">
                 <div class="col-xs-12 col-sm-12 col-md-12">
                     <div class="form-group">
-                        <strong>Course Name:</strong>
+                        <strong>User Name:</strong>
                         <input type="text" name="name" class="form-control">
                     </div>
                 </div>
                 <div class="col-xs-12 col-sm-12 col-md-12">
                     <div class="form-group">
-                        <strong>Date:</strong>
-                        <input type="date" name="date" class="form-control">
+                        <strong>Email</strong>
+                        <input type="text" name="email" class="form-control">
                     </div>
                 </div>
                 <div class="col-xs-12 col-sm-12 col-md-12">
                     <div class="form-group">
-                        <strong>Price:</strong>
-                        <input type="number" name="price" class="form-control">
+                        <strong>Password:</strong>
+                        <input type="password" name="password" class="form-control">
                     </div>
                 </div>
                 <div class="col-xs-12 col-sm-12 col-md-12">
                     <div class="form-group">
-                        <strong>Detail:</strong>
-                        <textarea name="detail" id="" cols="30" rows="10" class="form-control"></textarea>
+                        <strong>Confirme Password:</strong>
+                        <input type="password" name="password_confirmation" class="form-control">
                     </div>
                 </div>
+
                 <div class="col-xs-12 col-sm-12 col-md-12 text-center">
-                    <button type="submit" class="btn btn-success btn-block btn-lg">Update</button>
+                    <button type="submit" class="btn btn-success btn-block btn-lg">Update </button>
                 </div>
             </div>
 

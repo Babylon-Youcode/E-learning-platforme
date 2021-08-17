@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Models\User;
 
-class CourseController extends Controller
+class TeacherController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -17,8 +17,8 @@ class CourseController extends Controller
     public function index()
     {
 
-            $courses = Course::with(['User'])->latest()->paginate(5);
-            return view('admin.course.index', compact('courses'))
+            $teachers = Course::with(['User'])->latest()->paginate(5);
+            return view('admin.teacher.index', compact('teachers'))
             ->with('i',(request()->input('page',1)- 1)*5);
 
 
@@ -31,9 +31,9 @@ class CourseController extends Controller
      */
     public function create()
     {
-        $courses = User::where('role','TAC')->get();
+        $teachers = User::where('role','TAC')->get();
 
-        return view('admin.course.create',compact('courses'));
+        return view('admin.teacher.create',compact('teachers'));
     }
 
     /**
@@ -44,16 +44,17 @@ class CourseController extends Controller
      */
     public function store(Request $request)
     {
+        // dd($request);
         $request->validate([
             'name' => 'required',
-            'date' => 'required',
-            'price' => 'required',
-            'detail' => 'required',
+            'email' => 'required',
+            'password' => 'required',
+            'role' => 'required',
         ]);
-        Course::create($request->all());
+        User::create($request->all());
 
-        return redirect()->route('admin.course.all')
-            ->with('success', 'course created successfully.');
+        return redirect()->route('admin.teacher.all')
+            ->with('success', 'Teacher Added successfully.');
 
 
 
@@ -62,58 +63,57 @@ class CourseController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Course  $course
+     * @param  \App\Models\User  $user
      * @return \Illuminate\Http\Response
      */
-    public function show(Course $course)
+    public function show(User $teacher)
     {
-        return view('admin.course.show', compact('course'));
+        return view('admin.teacher.show', compact('teacher'));
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Course  $course
+     * @param  \App\Models\User  $user
      * @return \Illuminate\Http\Response
      */
-    public function edit(Course $course)
+    public function edit(User $teachers)
     {
-        return view('admin.course.edit', compact('course'));
+        return view('admin.teacher.edit', compact('teachers'));
     }
 
     /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Course  $course
+     * @param  \App\Models\User  $user
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Course $course)
+    public function update(Request $request, User $teachers)
     {
         $request->validate([
             'name' => 'required',
-            'date' => 'required',
-            'price' => 'required',
-            'detail' => 'required',
+            'email' => 'required',
+            'password' => 'required',
         ]);
-        $course->update($request->all());
+        $teachers ->update($request->all());
 
-        return redirect()->route('admin.course.all')
-            ->with('success', 'course updated successfully.');
+        return redirect()->route('admin.teacher.all')
+            ->with('success', 'Teacher updated successfully.');
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Course  $course
+     * @param  \App\Models\User  $cuser
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Course $course)
+    public function destroy(User $teachers)
     {
 
-        $course->delete();
+        $teachers->delete();
 
-        return redirect()->route('admin.course.all')
-            ->with('success', 'Course deleted successfully');
+        return redirect()->route('admin.teacher.all')
+            ->with('success', 'Teacher deleted successfully');
     }
 }

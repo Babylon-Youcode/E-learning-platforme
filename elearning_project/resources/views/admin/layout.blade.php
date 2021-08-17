@@ -223,11 +223,18 @@
 
         <ul class="list-unstyled">
           <li class="has-dropdown">
-            <a href="{{ route('admin.home') }}"> Dashboard</a>
+            <a href="{{ route('admin.home') }}"> Home</a>
           </li>
           <li class="has-dropdown">
-            <a href="{{ route('admin.course.all') }}"> Cources</a>
+            <a href="{{ route('admin.course.all') }}"> Courses</a>
           </li>
+          <li class="has-dropdown">
+            <a href="{{ route('admin.teacher.all') }}"> Teachers</a>
+          </li>
+          <li class="has-dropdown">
+            <a href="{{ route('admin.user.all') }}"> Users</a>
+          </li>
+
         </ul>
       </aside>
 

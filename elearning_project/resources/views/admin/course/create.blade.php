@@ -48,8 +48,8 @@
                         <strong>Teacher:</strong>
                         <select name="users_id" id="teacher" class="form-control">
                             <option value="" selected disabled>Select Teacher...</option>
-                            @foreach ($teachers as $teacher)
-                                <option value="{{$teacher->id}}">{{$teacher->name}}</option>
+                            @foreach ($courses as $course)
+                                <option value="{{$course->id}}">{{$course->name}}</option>
                             @endforeach
                         </select>
                     </div>
