@@ -17,7 +17,7 @@ Route::prefix('/teacher')->name('teacher.')->group(function (){
     Route::get('/',[App\Http\Controllers\Admin\TeacherController::class,'index'])->name('all');
     Route::get('/Add',[App\Http\Controllers\Admin\TeacherController::class,'create'])->name('create');
     Route::post('/Add',[App\Http\Controllers\Admin\TeacherController::class,'store'])->name('store');
-    Route::get('/delete/{user:id}', [App\Http\Controllers\Admin\TeacherController::class,'destroy'])->name('destroy');
+    Route::get('/delete/{id}', [App\Http\Controllers\Admin\TeacherController::class,'destroy'])->name('destroy');
     Route::get('/edit/{id}', [App\Http\Controllers\Admin\TeacherController::class,'edit'])->name('edit');
     Route::post('/edit/{id}', [App\Http\Controllers\Admin\TeacherController::class,'update'])->name('update');
     Route::get('/Show/{id}', [App\Http\Controllers\Admin\TeacherController::class,'show'])->name('show');

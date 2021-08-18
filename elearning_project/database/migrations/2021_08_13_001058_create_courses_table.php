@@ -22,6 +22,7 @@ class CreateCoursesTable extends Migration
             $table->string('detail');
             $table->rememberToken();
             $table->timestamps();
+            $table->softDeletes();
             $table->unsignedBigInteger('users_id');
             $table->index('users_id','if_courses_users_idx');
             $table->foreign('users_id','if_courses_users_idx')->references('id')->on('users')->onDelete('no action')->onUpdate('no action');

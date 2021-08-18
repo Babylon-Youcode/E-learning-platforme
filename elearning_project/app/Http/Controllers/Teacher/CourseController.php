@@ -31,7 +31,7 @@ class CourseController extends Controller
      */
     public function create()
     {
-        $courses = User::where('role','TAC')->get();
+        $courses = Course::where('')->get();
         return view('teacher.course.create',compact('courses'));
     }
 
