@@ -24,9 +24,8 @@
         <form action="{{ route('admin.teacher.store') }}" method="POST">
             @csrf
             <input type="hidden" name="role" value="teacher">
-            <input type="hidden" name="role" value="teacher">
-                        <div class="form-group row">
-                            <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('Teacher Name') }}</label>
+                <div class="form-group row">
+                    <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('Teacher Name') }}</label>
             <input type="hidden" name="users_id" value="{{Auth::user()->id}}">
             <div class="row">
                 <div class="col-xs-12 col-sm-12 col-md-12">

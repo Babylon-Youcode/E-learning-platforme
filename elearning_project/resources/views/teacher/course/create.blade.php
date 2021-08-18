@@ -1,11 +1,11 @@
-@extends('admin.layout')
+@extends('teacher.layout')
 
 @section('content')
 <div class="container">
     <div class="row" style="margin-bottom: 20px;">
         <div class="col-lg-12 margin-tb">
             <div class="pull-left">
-                <h3>Update Teacher</h3>
+                <h3>Add Course</h3>
             </div>
         </div>
     </div>
@@ -21,39 +21,47 @@
         </div>
     @endif
 
-        <form action="{{ route('admin.user.update',$users->id) }}" method="POST">
+        <form action="{{ route('teacher.course.store') }}" method="POST">
             @csrf
-            <input type="hidden" name="role" value="user">
-                <div class="form-group row">
             <input type="hidden" name="users_id" value="{{Auth::user()->id}}">
             <div class="row">
                 <div class="col-xs-12 col-sm-12 col-md-12">
                     <div class="form-group">
-                        <strong>User Name:</strong>
+                        <strong>Course Name:</strong>
                         <input type="text" name="name" class="form-control">
                     </div>
                 </div>
                 <div class="col-xs-12 col-sm-12 col-md-12">
                     <div class="form-group">
-                        <strong>Email</strong>
-                        <input type="text" name="email" class="form-control">
+                        <strong>Date:</strong>
+                        <input type="date" name="date" class="form-control">
                     </div>
                 </div>
                 <div class="col-xs-12 col-sm-12 col-md-12">
                     <div class="form-group">
-                        <strong>Password:</strong>
-                        <input type="password" name="password" class="form-control">
+                        <strong>Price:</strong>
+                        <input type="number" name="price" class="form-control">
                     </div>
                 </div>
                 <div class="col-xs-12 col-sm-12 col-md-12">
                     <div class="form-group">
-                        <strong>Confirme Password:</strong>
-                        <input type="password" name="password_confirmation" class="form-control">
+                        <strong>Teacher:</strong>
+                        <select name="users_id" id="teacher" class="form-control">
+                            <option value="" selected disabled>Select Teacher...</option>
+                            @foreach ($courses as $course)
+                                <option value="{{$course->id}}">{{$course->name}}</option>
+                            @endforeach
+                        </select>
                     </div>
                 </div>
-
+                <div class="col-xs-12 col-sm-12 col-md-12">
+                    <div class="form-group">
+                        <strong>Detail:</strong>
+                        <textarea name="detail" id="" cols="30" rows="10" class="form-control"></textarea>
+                    </div>
+                </div>
                 <div class="col-xs-12 col-sm-12 col-md-12 text-center">
-                    <button type="submit" class="btn btn-success btn-block btn-lg">Update </button>
+                    <button type="submit" class="btn btn-success btn-block btn-lg">Add </button>
                 </div>
             </div>
 

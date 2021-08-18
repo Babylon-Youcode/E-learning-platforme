@@ -20,16 +20,16 @@
 
     <table class="table table-bordered datatable">
         <tr>
+            <th>id</th>
             <th>Name</th>
             <th>Email</th>
-            <th>Password</th>
             <th>role</th>
         </tr>
         @foreach ($users as $user)
             <tr>
+                <td>{{ $user->id }}</td>
                 <td>{{ $user->name }}</td>
                 <td>{{ $user->email }}</td>
-                <td>{{ $user->password }}</td>
                 <td>{{ $user->role }}</td>
                 <td>
 
@@ -48,6 +48,6 @@
         @endforeach
     </table>
 
-    {!! $users->links() !!}
+    {{-- {!! $users->links() !!} --}}
 
 @endsection

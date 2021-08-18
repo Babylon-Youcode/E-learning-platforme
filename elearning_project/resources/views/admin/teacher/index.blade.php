@@ -20,20 +20,21 @@
 
     <table class="table table-bordered datatable">
         <tr>
+            <th>#</th>
             <th>Name</th>
             <th>Email</th>
-            <th>Password</th>
+            <th>role</th>
         </tr>
         @foreach ($teachers as $teacher)
             <tr>
+                <td>{{ $teacher->id }}</td>
                 <td>{{ $teacher->name }}</td>
                 <td>{{ $teacher->email }}</td>
-                <td>{{ $teacher->password }}</td>
+                <td>{{ $teacher->role }}</td>
                 <td>
 
 
                         <a class="btn btn-info" href="{{ route('admin.teacher.show',$teacher->id) }}">Show</a>
-
 
                         <a class="btn btn-primary" href="{{ route('admin.teacher.edit',$teacher->id) }}">Edit</a>
 
@@ -46,6 +47,6 @@
         @endforeach
     </table>
 
-    {!! $teachers->links() !!}
+    {{-- {!! $teachers->links() !!} --}}
 
 @endsection

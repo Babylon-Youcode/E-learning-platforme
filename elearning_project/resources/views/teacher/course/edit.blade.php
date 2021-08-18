@@ -1,4 +1,4 @@
-@extends('admin.layout')
+@extends('teacher.layout')
 
 @section('content')
 <div class="container">
@@ -21,7 +21,7 @@
         </div>
     @endif
 
-        <form action="{{ route('admin.course.update',$course->id) }}" method="POST">
+        <form action="{{ route('teacher.course.update',$course->id) }}" method="POST">
             @csrf
             <input type="hidden" name="users_id" value="{{Auth::user()->id}}">
             <div class="row">

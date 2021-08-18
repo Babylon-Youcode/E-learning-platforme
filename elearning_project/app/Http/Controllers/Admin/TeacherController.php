@@ -6,6 +6,8 @@ use App\Models\Course;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Models\User;
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Validator;
 
 class TeacherController extends Controller
 {
@@ -17,7 +19,7 @@ class TeacherController extends Controller
     public function index()
     {
 
-            $teachers = Course::with(['User'])->latest()->paginate(5);
+            $teachers = User::where( 'role','TAC' )->get();
             return view('admin.teacher.index', compact('teachers'))
             ->with('i',(request()->input('page',1)- 1)*5);
 
@@ -51,8 +53,19 @@ class TeacherController extends Controller
             'password' => 'required',
             'role' => 'required',
         ]);
-        User::create($request->all());
 
+        if($request->input('role') == 'teacher'){$role = 'TAC';}
+        if($request->input('role') == 'admin'){$role = 'ADM';}
+        if($request->input('role') == 'user'){$role = 'USR';}
+
+        User::create([
+            'name' => $request->input('name'),
+            'email' => $request->input('email'),
+            'password' => Hash::make($request->input()['password']),
+            'role' => $role
+        ]);
+
+            // dd($request);
         return redirect()->route('admin.teacher.all')
             ->with('success', 'Teacher Added successfully.');
 
@@ -66,9 +79,10 @@ class TeacherController extends Controller
      * @param  \App\Models\User  $user
      * @return \Illuminate\Http\Response
      */
-    public function show(User $teacher)
+    public function show($id)
     {
-        return view('admin.teacher.show', compact('teacher'));
+        $teachers = User::find($id);
+        return view('admin.teacher.show', compact('teachers'));
     }
 
     /**
@@ -77,8 +91,9 @@ class TeacherController extends Controller
      * @param  \App\Models\User  $user
      * @return \Illuminate\Http\Response
      */
-    public function edit(User $teachers)
+    public function edit($id)
     {
+        $teachers = User::find($id);
         return view('admin.teacher.edit', compact('teachers'));
     }
 
@@ -89,14 +104,20 @@ class TeacherController extends Controller
      * @param  \App\Models\User  $user
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, User $teachers)
+    public function update(Request $request,$id)
     {
         $request->validate([
             'name' => 'required',
             'email' => 'required',
             'password' => 'required',
+            'role'  => 'required',
         ]);
-        $teachers ->update($request->all());
+
+        User::where('id',$id)->update([
+            "name" => $request->name,
+            "email" => $request->email,
+            "password" => Hash::make($request->password),
+        ]);
 
         return redirect()->route('admin.teacher.all')
             ->with('success', 'Teacher updated successfully.');

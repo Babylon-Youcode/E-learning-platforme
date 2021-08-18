@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Admin;
+namespace App\Http\Controllers\Teacher;
 
 use App\Models\Course;
 use Illuminate\Http\Request;
@@ -18,7 +18,7 @@ class CourseController extends Controller
     {
 
             $courses = Course::with(['User'])->latest()->paginate(5);
-            return view('admin.course.index', compact('courses'))
+            return view('teacher.course.index', compact('courses'))
             ->with('i',(request()->input('page',1)- 1)*5);
 
 
@@ -32,7 +32,7 @@ class CourseController extends Controller
     public function create()
     {
         $courses = User::where('role','TAC')->get();
-        return view('admin.course.create',compact('courses'));
+        return view('teacher.course.create',compact('courses'));
     }
 
     /**
@@ -51,7 +51,7 @@ class CourseController extends Controller
         ]);
         Course::create($request->all());
 
-        return redirect()->route('admin.course.all')
+        return redirect()->route('teacher.course.all')
             ->with('success', 'course created successfully.');
     }
 
@@ -64,7 +64,7 @@ class CourseController extends Controller
     public function show($id)
     {
          $courses = Course::find($id);
-        return view('admin.course.show', compact('courses'));
+        return view('teacher.course.show', compact('courses'));
     }
 
     /**
@@ -76,7 +76,7 @@ class CourseController extends Controller
     public function edit(Course $course)
     {
         $teachers = User::where('role','TAC')->get();
-        return view('admin.course.edit',compact('teachers','course'));
+        return view('teacher.course.edit',compact('teachers','course'));
     }
 
     /**
@@ -96,7 +96,7 @@ class CourseController extends Controller
         ]);
 
         $course->update($request->all());
-        return redirect()->route('admin.course.all')->with('success', 'course updated successfully.');
+        return redirect()->route('teacher.course.all')->with('success', 'course updated successfully.');
     }
 
     /**
@@ -110,7 +110,7 @@ class CourseController extends Controller
 
         $course->delete();
 
-        return redirect()->route('admin.course.all')
+        return redirect()->route('teacher.course.all')
             ->with('success', 'Course deleted successfully');
     }
 }

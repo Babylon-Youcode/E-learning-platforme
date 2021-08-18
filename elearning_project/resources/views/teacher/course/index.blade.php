@@ -1,4 +1,4 @@
-@extends('admin.layout')
+@extends('teacher.layout')
 
 @section('content')
     <div class="row" style="margin-bottom: 20px;">
@@ -7,7 +7,7 @@
                 <h3>All Courses</h3>
             </div>
             <div class="pull-right">
-                <a class="btn btn-success" href="{{ route('admin.course.create') }}">Add Courses</a>
+                <a class="btn btn-success" href="{{ route('teacher.course.create') }}">Add Courses</a>
             </div>
         </div>
     </div>
@@ -36,12 +36,12 @@
                 <td>
 
 
-                        <a class="btn btn-info" href="{{ route('admin.course.show',$course->id) }}">Show</a>
+                        <a class="btn btn-info" href="{{ route('teacher.course.show',$course->id) }}">Show</a>
 
 
-                        <a class="btn btn-primary" href="{{ route('admin.course.edit',$course->id ) }}">Edit</a>
+                        <a class="btn btn-primary" href="{{ route('teacher.course.edit',$course->id ) }}">Edit</a>
 
-                        <a class="btn btn-danger" href="{{ route('admin.course.destroy',$course->id) }}">Delete</a>
+                        <a class="btn btn-danger" href="{{ route('teacher.course.destroy',$course->id) }}">Delete</a>
 
 
 
