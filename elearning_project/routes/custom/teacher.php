@@ -1,8 +1,8 @@
 <?php
 
-// Route::get('/dashboard', [App\Http\Controllers\Teacher\TeacherController::class,'getDashboard'])->name('teacher-dashboard');
+Route::get('/dashboard', [App\Http\Controllers\Teacher\TeacherController::class,'getDashboard'])->name('teacher-dashboard');
 
-// Route::get('/', function(){return view('teacher.login');})->name('teacher,login');
+Route::get('/', function(){return view('teacher.login');})->name('teacher-login');
 
 
 Route::prefix('/course')->name('course.')->group(function () {

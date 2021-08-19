@@ -1,5 +1,6 @@
 <!doctype html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -92,30 +93,30 @@
             font-size: .825rem;
         }
 
-        .sidebar .search .form-control ~ i {
+        .sidebar .search .form-control~i {
             color: #2b2f3a;
             right: 40px;
             top: 22px;
         }
 
-        .sidebar > ul > li {
+        .sidebar>ul>li {
             padding: .7rem 1.75rem;
         }
 
-        .sidebar ul > li > a {
+        .sidebar ul>li>a {
             color: var(--dk-gray-400);
             text-decoration: none;
         }
 
         /* Start numbers */
-        .sidebar ul > li > a > .num {
+        .sidebar ul>li>a>.num {
             line-height: 0;
             border-radius: 3px;
             font-size: 14px;
             padding: 0px 5px
         }
 
-        .sidebar ul > li > i {
+        .sidebar ul>li>i {
             font-size: 18px;
             margin-right: .7rem;
             color: var(--dk-gray-500);
@@ -129,15 +130,17 @@
             padding-left: 30px;
             display: none;
         }
+
         .sidebar ul .sidebar-dropdown.active {
             display: block;
         }
 
-        .sidebar ul .sidebar-dropdown > li > a {
-        font-size: .85rem;
+        .sidebar ul .sidebar-dropdown>li>a {
+            font-size: .85rem;
             padding: .5rem 0;
             display: block;
         }
+
         /* End dropdown menu */
 
         .show-sidebar {
@@ -145,7 +148,7 @@
         }
 
         @media (max-width: 767px) {
-            .sidebar ul > li {
+            .sidebar ul>li {
                 padding-top: 12px;
                 padding-bottom: 12px;
             }
@@ -154,12 +157,20 @@
                 padding: 10px 0 10px 30px
             }
         }
-        .hidden.sm\:flex-1.sm\:flex.sm\:items-center.sm\:justify-between > div:nth-child(1) > p {m}
-        .hidden.sm\:flex-1.sm\:flex.sm\:items-center.sm\:justify-between > div:nth-child(2) {display: none;}
+
+        .hidden.sm\:flex-1.sm\:flex.sm\:items-center.sm\:justify-between>div:nth-child(1)>p {
+            m
+        }
+
+        .hidden.sm\:flex-1.sm\:flex.sm\:items-center.sm\:justify-between>div:nth-child(2) {
+            display: none;
+        }
+
     </style>
 </head>
+
 <body class="bg-dark admin">
-    <nav class="navbar navbar-expand-md navbar-light bg-dark shadow-sm">
+    {{-- <nav class="navbar navbar-expand-md navbar-light bg-dark shadow-sm">
         <div class="container">
             <a class="navbar-brand text-light" href="{{ url('/') }}">
                 {{ config('app.name', 'Laravel') }}
@@ -205,38 +216,38 @@
                 </ul>
             </div>
         </div>
-    </nav>
+    </nav> --}}
+    @include('includes.header')
     <aside class="sidebar position-fixed top-0 left-0 overflow-auto h-100 float-left" id="show-side-navigation1">
         <i class="uil-bars close-aside d-md-none d-lg-none" data-close="show-side-navigation1"></i>
         <div class="sidebar-header d-flex justify-content-center align-items-center px-3 py-4">
-          <img
-               class="rounded-pill img-fluid mr-3"
-               width="65"
-               src="https://uniim1.shutterfly.com/ng/services/mediarender/THISLIFE/021036514417/media/23148907008/medium/1501685726/enhance"
-               alt="">
-          <div class="ms-2">
-            <h5 class="fs-6 mb-0">
-              <a class="text-decoration-none">{{ Auth::user()->name }}</a>
-            </h5>
-          </div>
+            <img class="rounded-pill img-fluid mr-3" width="65"
+                src="https://uniim1.shutterfly.com/ng/services/mediarender/THISLIFE/021036514417/media/23148907008/medium/1501685726/enhance"
+                alt="">
+            <div class="ms-2">
+                <h5 class="fs-6 mb-0">
+                    <a class="text-decoration-none">{{ Auth::user()->name }}</a>
+                </h5>
+            </div>
         </div>
 
         <ul class="list-unstyled">
-          <li class="has-dropdown">
-            <a href="{{ route('teacher.home') }}"> Home</a>
-          </li>
-          <li class="has-dropdown">
-            <a href="{{ route('teacher.course.all') }}"> Courses</a>
-          </li>
+            <li class="has-dropdown">
+                <a href="{{ route('teacher.home') }}"> Home</a>
+            </li>
+            <li class="has-dropdown">
+                <a href="{{ route('teacher.course.all') }}"> Courses</a>
+            </li>
         </ul>
-      </aside>
+    </aside>
 
-      <section id="wrapper" class="py-5">
-            <div class="container-fluid">
-                <div class=" bg-white rounded shadow p-3">
-                    @yield('content')
-                </div>
+    <section id="wrapper" class="py-5">
+        <div class="container-fluid">
+            <div class=" bg-white rounded shadow p-3">
+                @yield('content')
             </div>
-      </section>
+        </div>
+    </section>
 </body>
+
 </html>

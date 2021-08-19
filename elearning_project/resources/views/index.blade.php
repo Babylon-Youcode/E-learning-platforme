@@ -9,67 +9,74 @@
     <link rel="stylesheet" href="{{ asset('css/style.css') }}">
 </head>
 
+<style>
+    .display-4 {
+        font-size: 3.5rem;
+        font-weight: 700;
+        line-height: 1;
+        letter-spacing: -.02em;
+    }
+
+    .section-title {
+        margin-bottom: 4.6875rem;
+    }
+
+    .card-body {
+        flex: 1 1 auto;
+        padding: 1.25rem;
+    }
+
+    a.mya {
+        font-weight: 700 !important;
+        font-size: 1.25rem !important;
+    }
+
+    h5.myh5 {
+        margin-bottom: 0.5rem;
+        font-weight: 500;
+        line-height: 1.2;
+        font-size: 1.125rem;
+    }
+
+    .bg-primary-3 {
+        background-color: #051b35 !important;
+    }
+
+    .divider {
+        width: 100%;
+        position: relative;
+        height: 5vw;
+        pointer-events: none;
+        -webkit-mask-image: url(data:image/svg+xml;utf8,%3csvg viewBox='0 0 100 100' width='100%' height='100%' xmlns='http://www.w3.org/2000/svg' preserveAspectRatio='none'%3e%3cpath d='M0,0 C16.6666667,66 33.3333333,98 50,98 C66.6666667,98 83.3333333,66 100,0 L100,100 L0,100 L0,0 Z' fill='%23fff'/%3e%3c/svg%3e);
+        mask-image: url(data:image/svg+xml;utf8,%3csvg viewBox='0 0 100 100' width='100%' height='100%' xmlns='http://www.w3.org/2000/svg' preserveAspectRatio='none'%3e%3cpath d='M0,0 C16.6666667,66 33.3333333,98 50,98 C66.6666667,98 83.3333333,66 100,0 L100,100 L0,100 L0,0 Z' fill='%23fff'/%3e%3c/svg%3e);
+        -webkit-mask-size: 100% 101%;
+        mask-size: 100% 101%;
+        background: #fff;
+    }
+
+    .divider.divider-bottom {
+        top: 1px;
+    }
+
+    @media (min-width: 992px) section>.divider-bottom {
+        margin-top: calc(7.5rem - 5vw);
+    }
+
+    @media (min-width: 768px) section>.divider-bottom {
+        margin-top: calc(6rem - 5vw);
+    }
+
+    section>.divider-bottom {
+        margin-top: calc(3.75rem - 5vw);
+    }
+
+</style>
+
 <body style="height: 100vh">
-    <div class="w-100 h-100 d-flex flex-column">
-        <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
-            <div class="container">
-                <a class="navbar-brand" href="{{ url('/') }}">
-                    {{ config('app.name', 'Laravel') }}
-                </a>
-                <button class="navbar-toggler" type="button" data-toggle="collapse"
-                    data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
-                    aria-label="{{ __('Toggle navigation') }}">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
 
-                <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <!-- Left Side Of Navbar -->
-                    <ul class="navbar-nav mr-auto">
-
-                    </ul>
-
-                    <!-- Right Side Of Navbar -->
-                    <ul class="navbar-nav ml-auto">
-                        <!-- Authentication Links -->
-                        @guest
-                            @if (Route::has('login'))
-                                <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
-                                </li>
-                            @endif
-
-                            @if (Route::has('register'))
-                                <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
-                                </li>
-                            @endif
-                            @if (Route::has('teacher.register'))
-                                <a href="{{ route('teacher.register') }}" class="nav-link">Become Instructor</a>
-                            @endif
-                        @else
-                            <li class="nav-item dropdown">
-                                <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button"
-                                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                    {{ Auth::user()->name }}
-                                </a>
-
-                                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                                    <a class="dropdown-item" href="{{ route('logout') }}"
-                                        onclick="event.preventDefault();
-                                                                                                                                                                                                                                             document.getElementById('logout-form').submit();">
-                                        {{ __('Logout') }}
-                                    </a>
-
-                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-                                        @csrf
-                                    </form>
-                                </div>
-                            </li>
-                        @endguest
-                    </ul>
-                </div>
-            </div>
-        </nav>
+    {{-- star section 1 --}}
+    <section class="w-100 h-100 d-flex flex-column">
+        @include('includes.header')
         <!--end_navbar-->
 
         <div class="w-100 align-content-stretch d-flex flex-row justify-content-center align-items-center"
@@ -85,79 +92,477 @@
                 <button type="button" class="btn btn-outline-info btn-lg mt-3">Enroll A Course Now</button>
             </h1>
         </div>
-    </div>
-    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Fuga ex quidem, accusantium quia sunt exercitationem
-        obcaecati voluptatem quis itaque dolore culpa esse sit odio possimus iste eos. Odio dicta quisquam quae quo
-        neque. Laborum at, eum repellendus accusamus saepe natus accusantium voluptates quia, similique adipisci odio
-        ullam laboriosam possimus aspernatur dignissimos facere iste. Repudiandae voluptate harum officia nam sit
-        expedita suscipit architecto qui necessitatibus quibusdam, autem ad, dolor unde recusandae laborum? Dolor
-        cupiditate maxime facere. Expedita tenetur voluptas libero sint saepe? Commodi animi harum fugiat necessitatibus
-        adipisci magni voluptas voluptatum, sunt, quibusdam similique cum temporibus libero obcaecati quasi ea iure
-        facilis dolore minima, unde omnis sed praesentium! Neque ex sint nemo exercitationem! Quas dolor consequuntur
-        ipsa magni illum eum accusantium? Eligendi cumque tempore reprehenderit ea aut, incidunt unde nam non dolorem
-        ipsa libero magnam, omnis praesentium, placeat eum dolores sit sunt sed soluta. Libero minus necessitatibus
-        corporis rem earum cum et voluptatibus quas. Ab laudantium adipisci, molestias tenetur, nobis nostrum rerum
-        necessitatibus fugiat quasi cum explicabo. Aspernatur aperiam itaque vel eum voluptatem magni. Alias, laborum
-        eligendi voluptates laboriosam ea dicta id molestias? Blanditiis eaque magni molestiae obcaecati non
-        necessitatibus officiis quibusdam facilis dicta beatae, repellat eveniet asperiores consequatur expedita quidem
-        vero explicabo excepturi provident mollitia labore. Maiores, voluptatem ducimus nisi laboriosam facere, iure nam
-        pariatur modi laborum nostrum eligendi quidem neque reiciendis maxime aliquid ipsa ipsum libero velit,
-        voluptatibus tempora at repellat. Sequi minus quo accusamus aut cumque sapiente voluptas corrupti architecto id
-        exercitationem delectus quaerat non eligendi numquam, possimus dolorum asperiores voluptates. Eveniet quasi
-        ipsam quia soluta vel exercitationem provident minima temporibus maxime inventore quo obcaecati numquam eum
-        perspiciatis at fugit rem cumque facere ipsum iusto quibusdam assumenda adipisci, blanditiis vitae. Commodi
-        deleniti, accusantium asperiores officia culpa voluptas saepe modi a nemo, velit illum minus impedit iste natus
-        sed. Voluptatibus dolore fugit molestias placeat nemo et sequi? Suscipit recusandae quisquam corporis excepturi
-        numquam eligendi molestias, repudiandae iure ab eius pariatur, reprehenderit earum. Beatae, laborum est.
-        Distinctio ipsam quidem delectus temporibus unde beatae tempora praesentium deleniti repudiandae, porro
-        assumenda veniam sit, hic adipisci quod natus tempore fugiat, iste est qui eius? Atque modi neque alias ex
-        deserunt. Pariatur, doloribus reiciendis cumque illum nobis ab, at dolorem consectetur cum saepe ipsam esse
-        laudantium ullam quidem dolore. Error fuga quisquam deleniti qui libero magnam inventore dolore. Nisi nulla
-        quia, cum dolorem, aliquam dolore deserunt nam alias iure expedita rerum eligendi incidunt, harum voluptate
-        nihil laborum ipsa. Architecto, explicabo totam possimus, distinctio deserunt unde dicta aut porro rerum vitae
-        ab quas? Neque ut aliquam quam voluptate odio excepturi nihil. Libero eius similique quia, sint quod quibusdam
-        quas praesentium, totam maiores officia minus. Rerum, recusandae officiis nulla error assumenda aliquid nobis
-        excepturi quibusdam possimus repudiandae consequuntur reprehenderit ab amet quaerat officia ipsa reiciendis eos
-        voluptatum, dolorem at vitae. Vitae modi adipisci ratione fugit consequuntur enim quae quia corrupti consequatur
-        architecto natus pariatur explicabo nostrum, ducimus eos, ex molestias, impedit cum voluptates ut accusamus
-        quibusdam id placeat. Ea incidunt ipsam repellendus ad, sequi quidem officia. Facilis itaque placeat a voluptate
-        expedita architecto vitae, laborum eaque fugiat libero doloremque necessitatibus quaerat asperiores quidem
-        provident officiis explicabo suscipit totam iure temporibus voluptatem! Consectetur necessitatibus repudiandae
-        quae, culpa iste numquam, assumenda asperiores molestias sequi voluptate, ratione labore ea odit debitis
-        corrupti iusto! Commodi labore tempora corrupti excepturi sit veritatis consequuntur optio, odit architecto
-        error, quam repellat ab. Blanditiis non beatae sequi ab perferendis consectetur a veniam esse nostrum eum
-        expedita cumque tempora, debitis exercitationem iste veritatis dolore nobis corrupti praesentium, excepturi
-        tempore. Ad praesentium odio, fuga harum, tenetur dicta nam porro exercitationem facere iste officia placeat.
-        Harum nobis, amet magnam nihil dolor fugiat, nulla deserunt officiis dicta quia odit alias illo facere dolorum
-        ad expedita laborum maiores quo perferendis est reiciendis quis deleniti necessitatibus repellat! Totam
-        reprehenderit accusamus aliquam, tempore expedita officiis ex reiciendis, doloremque suscipit commodi quasi sunt
-        ut deserunt odit modi in vel sequi quo minima dicta. Nemo magni repellendus suscipit, illo dignissimos fugiat,
-        ex pariatur sit accusantium voluptates debitis repellat distinctio quae praesentium architecto doloribus hic ad
-        assumenda voluptatibus, alias quo aliquid officiis error beatae. Accusamus dignissimos cupiditate impedit odit.
-        Beatae, facere, placeat doloribus vero, nam quaerat quisquam officiis culpa accusamus iusto repellendus aut.
-        Inventore consequatur placeat cum quam perspiciatis maiores itaque natus ducimus vero incidunt quas dolor
-        dolorum accusamus vel asperiores, velit nobis, debitis illum explicabo aspernatur. Aliquid porro nesciunt culpa
-        amet natus. Vel error debitis deleniti commodi harum aut quam a, consequatur suscipit maiores voluptates.
-        Ratione ipsa quibusdam fugiat incidunt obcaecati saepe unde atque voluptas, similique natus illum! Minima
-        explicabo id iusto non et libero molestiae vero labore molestias quibusdam, laudantium exercitationem nam ipsum
-        iste aperiam similique quae dicta error quo in natus aliquid, dolorum ipsam adipisci. Quo porro asperiores minus
-        nihil perferendis. Nostrum labore nisi porro aliquam perferendis quibusdam consectetur exercitationem obcaecati
-        incidunt iure, quia inventore? Delectus, quod voluptatibus excepturi, quos iusto dolor voluptatem beatae
-        officiis iste nostrum ratione expedita accusamus, possimus temporibus soluta. Totam neque alias vel, at nam
-        mollitia. Odit soluta eligendi magni, quia deserunt quidem fugiat facilis dolorum corporis explicabo neque
-        tenetur ipsum nobis doloremque dicta similique ratione expedita illo aliquid hic aperiam eum? Eligendi molestiae
-        officiis quam! Nesciunt similique eum animi quas, sint, placeat reiciendis laborum tempore deserunt porro
-        quisquam, dolorem quo officiis. Voluptate distinctio at vitae voluptatem reprehenderit quisquam ex. Cupiditate
-        voluptas fugit enim nihil vitae, dolores soluta molestias doloribus, porro minima odit. Similique ex distinctio
-        fuga reiciendis saepe dolores enim explicabo hic? Dignissimos iure, alias optio tenetur rerum iste libero,
-        assumenda numquam quasi facere ullam! Recusandae est ipsa quod saepe, beatae reprehenderit aut suscipit veniam
-        unde libero ipsum, eligendi, deleniti vero in. Tempora velit suscipit maxime ex obcaecati? Sapiente quis
-        eligendi quo libero, ullam nulla nobis magni impedit excepturi vel, consequatur totam. Tempora, nam saepe,
-        exercitationem at tenetur impedit nesciunt commodi necessitatibus nihil voluptatibus molestiae aliquid rerum
-        eveniet molestias dicta architecto, quasi porro quam perspiciatis voluptates natus. Aliquam fuga maiores
-        corporis beatae dolorem, aut velit ea eveniet, incidunt commodi quae accusantium recusandae quaerat dolor, vel
-        delectus.</p>
+    </section>
+    {{-- end section 1 --}}
 
+    {{-- star section 2 --}}
+
+    <section class="bg-light py-5">
+        <div class="container">
+
+            <div class="row section-title justify-content-center text-center">
+                <div class="col-md-9 col-lg-8 col-xl-7">
+                    <h2 class="display-4">Top Latest Courses</h2>
+
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-6 col-lg-4 mb-3 mb-md-4">
+                    <div class="card h-100 hover-box-shadow">
+                        <a href="https://www.udemy.com/course/react-with-laravel-build-complete-project/"
+                            target="/blank" class="d-block bg-gradient rounded-top">
+                            <img class="card-img-top hover-fade-out"
+                                src="https://www.easylearningbd.com/image/course1.png" alt="blog.6.image">
+                        </a>
+                        <div class="card-body">
+                            <a class="mya"
+                                href="https://www.udemy.com/course/react-with-laravel-build-complete-project/"
+                                target="/blank">
+                                <h5>React Js A-Z With Laravel - Build Complete Real Life Project
+                                </h5>
+                            </a>
+
+
+                        </div>
+                        <div class="card-footer d-flex justify-content-between align-items-center">
+                            <a class="mya" href="#" class="badge badge-pill badge-danger">Paid Course</a>
+                            <div class="text-small text-muted">Udemy</div>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="col-md-6 col-lg-4 mb-3 mb-md-4">
+                    <div class="card h-100 hover-box-shadow">
+                        <a href="https://www.udemy.com/course/laravel-advance-ecommerce-project/?couponCode=EASYLEARNING"
+                            target="/blank" class="d-block bg-gradient rounded-top">
+                            <img class="card-img-top hover-fade-out"
+                                src="https://www.easylearningbd.com/image/advanceecommerce.png" alt="blog.6.image">
+                        </a>
+                        <div class="card-body">
+                            <a class="class=" mya""
+                                href="https://www.udemy.com/course/laravel-advance-ecommerce-project/?couponCode=EASYLEARNING"
+                                target="/blank">
+                                <h5>Laravel 8 - Build Advance Ecommerce Project A-Z</h5>
+                            </a>
+
+                        </div>
+                        <div class="card-footer d-flex justify-content-between align-items-center">
+                            <a class="mya" href="#" class="badge badge-pill badge-danger">Paid Course</a>
+                            <div class="text-small text-muted">Udemy</div>
+                        </div>
+                    </div>
+                </div>
+
+
+
+                <div class="col-md-6 col-lg-4 mb-3 mb-md-4">
+                    <div class="card h-100 hover-box-shadow">
+                        <a href="https://www.udemy.com/course/laravel-advanced-course-build-school-management-system/?referralCode=EB9554D6693F4EF51211"
+                            target="/blank" class="d-block bg-gradient rounded-top">
+                            <img class="card-img-top hover-fade-out"
+                                src="https://www.easylearningbd.com/image/school1.jpg" alt="blog.6.image">
+                        </a>
+                        <div class="card-body">
+                            <a class="mya"
+                                href="https://www.udemy.com/course/laravel-advanced-course-build-school-management-system/?referralCode=EB9554D6693F4EF51211"
+                                target="/blank">
+                                <h5>Laravel 8 - Advance Course Build School Management System
+                                </h5>
+                            </a>
+
+
+                        </div>
+                        <div class="card-footer d-flex justify-content-between align-items-center">
+                            <a class="mya" href="#" class="badge badge-pill badge-danger">Paid Course</a>
+                            <div class="text-small text-muted">Udemy</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    {{-- end section 2 --}}
+
+    {{-- star section 3 --}}
+    <section>
+        <div class="container">
+            <div class="row section-title justify-content-center text-center">
+                <div class="col-md-9 col-lg-8 col-xl-7">
+                    <h3 class="display-4">Popular Courses</h3>
+                    <div class="lead">Check out of our all Popular Professional Courses</div>
+                </div>
+            </div>
+            <div class="row">
+
+
+
+
+
+
+
+
+                <div class="col-md-6 col-lg-4 mb-3 mb-md-4">
+                    <div class="card h-100 hover-box-shadow">
+                        <a href="https://www.udemy.com/course/laravel-6-framework/?referralCode=10BEEE6AB4755A9CBE59"
+                            target="/blank" class="d-block bg-gradient rounded-top">
+                            <img class="card-img-top hover-fade-out"
+                                src="https://www.easylearningbd.com/image/course1.png" alt="blog.6.image">
+                        </a>
+                        <div class="card-body">
+                            <a href="https://www.udemy.com/course/laravel-6-framework/?referralCode=10BEEE6AB4755A9CBE59"
+                                target="/blank">
+                                <h5>Laravel 6 PHP Framework for Just Beginners</h5>
+                            </a>
+
+
+                        </div>
+                        <div class="card-footer d-flex justify-content-between align-items-center">
+                            <a href="#" class="badge badge-pill badge-primary">Free Course</a>
+                            <div class="text-small text-muted">Udemy</div>
+                        </div>
+                    </div>
+                </div>
+
+
+
+
+
+                <div class="col-md-6 col-lg-4 mb-3 mb-md-4">
+                    <div class="card h-100 hover-box-shadow">
+                        <a href="https://www.udemy.com/course/laravel-beginner-to-advance-with-complete-news-portal/?referralCode=3D21CC3F568917C31491"
+                            target="/blank" class="d-block bg-gradient rounded-top">
+                            <img class="card-img-top hover-fade-out"
+                                src="https://www.easylearningbd.com/image/newcourse1.png" alt="blog.6.image">
+                        </a>
+                        <div class="card-body">
+                            <a href="https://www.udemy.com/course/laravel-beginner-to-advance-with-complete-news-portal/?referralCode=3D21CC3F568917C31491"
+                                target="/blank">
+                                <h5>Laravel 8 Beginner to Advance with Complete News Portal
+                                </h5>
+                            </a>
+
+
+                        </div>
+                        <div class="card-footer d-flex justify-content-between align-items-center">
+                            <a href="#" class="badge badge-pill badge-danger">Paid Course</a>
+                            <div class="text-small text-muted">Udemy</div>
+                        </div>
+                    </div>
+                </div>
+
+
+
+
+
+
+
+
+                <div class="col-md-6 col-lg-4 mb-3 mb-md-4">
+                    <div class="card h-100 hover-box-shadow">
+                        <a href="https://www.udemy.com/course/django-python-web-development-for-beginner/?referralCode=75418236328D16AB524C"
+                            target="/blank" class="d-block bg-gradient rounded-top">
+                            <img class="card-img-top hover-fade-out"
+                                src="https://www.easylearningbd.com/image/newcourse3.png" alt="blog.6.image">
+                        </a>
+                        <div class="card-body">
+                            <a href="https://www.udemy.com/course/django-python-web-development-for-beginner/?referralCode=75418236328D16AB524C"
+                                target="/blank">
+                                <h5>Django 3 - Python Backend Web Development For Beginner</h5>
+                            </a>
+
+                        </div>
+                        <div class="card-footer d-flex justify-content-between align-items-center">
+                            <a href="#" class="badge badge-pill badge-danger">Paid Course</a>
+                            <div class="text-small text-muted">Udemy</div>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="col-md-6 col-lg-4 mb-3 mb-md-4">
+                    <div class="card h-100 hover-box-shadow">
+                        <a href="https://www.udemy.com/course/laravel-framework-build-professional-ecommerce/?referralCode=BE24CEE2B8285B6BFE32"
+                            target="/blank" class="d-block bg-gradient rounded-top">
+                            <img class="card-img-top hover-fade-out"
+                                src="https://www.easylearningbd.com/image/coursenew1.png" alt="blog.6.image">
+                        </a>
+                        <div class="card-body">
+                            <a href="https://www.udemy.com/course/laravel-framework-build-professional-ecommerce/?referralCode=BE24CEE2B8285B6BFE32"
+                                target="/blank">
+                                <h5>Laravel 8 PHP Framework A - Z Build Professional Ecommerce</h5>
+                            </a>
+
+
+                        </div>
+                        <div class="card-footer d-flex justify-content-between align-items-center">
+                            <a href="#" class="badge badge-pill badge-danger">Paid Course</a>
+                            <div class="text-small text-muted">Udemy</div>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="col-md-6 col-lg-4 mb-3 mb-md-4">
+                    <div class="card h-100 hover-box-shadow">
+                        <a href="https://www.udemy.com/course/react-for-beginner-convert-html-to-react/?referralCode=B99B85C5973F4FB4153D"
+                            target="/blank" class="d-block bg-gradient rounded-top">
+                            <img class="card-img-top hover-fade-out"
+                                src="https://www.easylearningbd.com/image/newcourse4.png" alt="blog.6.image">
+                        </a>
+                        <div class="card-body">
+                            <a href="https://www.udemy.com/course/react-for-beginner-convert-html-to-react/?referralCode=B99B85C5973F4FB4153D"
+                                target="/blank">
+                                <h5>React JS For Beginner Convert Any HTML Site To React JS</h5>
+                            </a>
+
+
+                        </div>
+                        <div class="card-footer d-flex justify-content-between align-items-center">
+                            <a href="#" class="badge badge-pill badge-danger">Paid Course</a>
+                            <div class="text-small text-muted">Udemy</div>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="col-md-6 col-lg-4 mb-3 mb-md-4">
+                    <div class="card h-100 hover-box-shadow">
+                        <a href="https://www.udemy.com/course/laravel-vuejs-restful-api-course/?referralCode=998D6ABC15EFF6D76201"
+                            target="/blank" class="d-block bg-gradient rounded-top">
+                            <img class="card-img-top hover-fade-out"
+                                src="https://www.easylearningbd.com/image/coursenew2.png" alt="blog.6.image">
+                        </a>
+                        <div class="card-body">
+                            <a href="https://www.udemy.com/course/laravel-vuejs-restful-api-course/?referralCode=998D6ABC15EFF6D76201"
+                                target="/blank">
+                                <h5>Laravel 8 Vuejs &amp; RESTful API Course With Complete Project
+                                </h5>
+                            </a>
+
+
+                        </div>
+                        <div class="card-footer d-flex justify-content-between align-items-center">
+                            <a href="#" class="badge badge-pill badge-danger">Paid Course</a>
+                            <div class="text-small text-muted">Udemy</div>
+                        </div>
+                    </div>
+                </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                <div class="col-md-6 col-lg-4 mb-3 mb-md-4">
+                    <div class="card h-100 hover-box-shadow">
+                        <a href="https://www.udemy.com/course/opencart-3-ecommerce-opencart-multi-vendor-project/?referralCode=725128FB5714330ACEE4"
+                            target="/blank" class="d-block bg-gradient rounded-top">
+                            <img class="card-img-top hover-fade-out"
+                                src="https://www.easylearningbd.com/image/newcourse2.png" alt="blog.6.image">
+                        </a>
+                        <div class="card-body">
+                            <a href="https://www.udemy.com/course/opencart-3-ecommerce-opencart-multi-vendor-project/?referralCode=725128FB5714330ACEE4"
+                                target="/blank">
+                                <h5>Opencart 3 Complete Ecommerce Project With Multi Vendor</h5>
+                            </a>
+
+
+                        </div>
+                        <div class="card-footer d-flex justify-content-between align-items-center">
+                            <a href="#" class="badge badge-pill badge-danger">Paid Course</a>
+                            <div class="text-small text-muted">Udemy</div>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="col-md-6 col-lg-4 mb-3 mb-md-4">
+                    <div class="card h-100 hover-box-shadow">
+                        <a href="https://www.udemy.com/course/php-oop-complete-online-exam-system/?referralCode=059A30F39DAA1DCC77FF"
+                            target="/blank" class="d-block bg-gradient rounded-top">
+                            <img class="card-img-top hover-fade-out"
+                                src="https://www.easylearningbd.com/image/course4.png" alt="blog.6.image">
+                        </a>
+                        <div class="card-body">
+                            <a href="https://www.udemy.com/course/php-oop-complete-online-exam-system/?referralCode=059A30F39DAA1DCC77FF"
+                                target="/blank">
+                                <h5>PHP OOP Complete Online Exam System with PHP jQuery Ajax</h5>
+                            </a>
+
+
+                        </div>
+                        <div class="card-footer d-flex justify-content-between align-items-center">
+                            <a href="#" class="badge badge-pill badge-danger">Paid Course</a>
+                            <div class="text-small text-muted">Udemy</div>
+                        </div>
+                    </div>
+                </div>
+
+
+
+                <div class="col-md-6 col-lg-4 mb-3 mb-md-4">
+                    <div class="card h-100 hover-box-shadow">
+                        <a href="https://www.udemy.com/course/yii2-php-framework/?referralCode=8E778291CA1E1CB65AB0"
+                            target="/blank" class="d-block bg-gradient rounded-top">
+                            <img class="card-img-top hover-fade-out"
+                                src="https://www.easylearningbd.com/image/course5.png" alt="blog.6.image">
+                        </a>
+                        <div class="card-body">
+                            <a href="https://www.udemy.com/course/yii2-php-framework/?referralCode=8E778291CA1E1CB65AB0"
+                                target="/blank">
+                                <h5>Yii2 PHP Framework for Beginner to Advance 2019 with Project</h5>
+                            </a>
+
+
+                        </div>
+                        <div class="card-footer d-flex justify-content-between align-items-center">
+                            <a href="#" class="badge badge-pill badge-danger">Paid Course</a>
+                            <div class="text-small text-muted">Udemy</div>
+                        </div>
+                    </div>
+                </div>
+
+
+
+                <div class="col-md-6 col-lg-4 mb-3 mb-md-4">
+                    <div class="card h-100 hover-box-shadow">
+                        <a href="https://www.udemy.com/course/cakephp-complete-project/?referralCode=A3A08903C83D57355760"
+                            target="/blank" class="d-block bg-gradient rounded-top">
+                            <img class="card-img-top hover-fade-out"
+                                src="https://www.easylearningbd.com/image/course6.png" alt="blog.6.image">
+                        </a>
+                        <div class="card-body">
+                            <a href="https://www.udemy.com/course/cakephp-complete-project/?referralCode=A3A08903C83D57355760"
+                                target="/blank">
+                                <h5>CakePHP for Beginner to Advance with Complete Project 2019</h5>
+                            </a>
+
+                        </div>
+                        <div class="card-footer d-flex justify-content-between align-items-center">
+                            <a href="#" class="badge badge-pill badge-danger">Paid Course</a>
+                            <div class="text-small text-muted">Udemy</div>
+                        </div>
+                    </div>
+                </div>
+
+
+
+
+
+
+
+
+
+
+                <div class="col-md-6 col-lg-4 mb-3 mb-md-4">
+                    <div class="card h-100 hover-box-shadow">
+                        <a href="https://www.udemy.com/course/php-complete-ecommerce-project/?referralCode=9C13BAEE74459B09B6DD"
+                            target="/blank" class="d-block bg-gradient rounded-top">
+                            <img class="card-img-top hover-fade-out"
+                                src="https://www.easylearningbd.com/image/course9.png" alt="blog.6.image">
+                        </a>
+                        <div class="card-body">
+                            <a href="https://www.udemy.com/course/php-complete-ecommerce-project/?referralCode=9C13BAEE74459B09B6DD"
+                                target="/blank">
+                                <h5>PHP OOP Complete Ecommerce Project Course - 4 Courses in 1</h5>
+                            </a>
+
+
+                        </div>
+                        <div class="card-footer d-flex justify-content-between align-items-center">
+                            <a href="#" class="badge badge-pill badge-danger">Paid Course</a>
+                            <div class="text-small text-muted">Udemy</div>
+                        </div>
+                    </div>
+                </div>
+
+
+
+                <div class="col-md-6 col-lg-4 mb-3 mb-md-4">
+                    <div class="card h-100 hover-box-shadow">
+                        <a href="https://www.udemy.com/course/opencart-3-complete-professional-course/?referralCode=28A1EAEB23CD6D46653B"
+                            target="/blank" class="d-block bg-gradient rounded-top">
+                            <img class="card-img-top hover-fade-out"
+                                src="https://www.easylearningbd.com/image/course12.png" alt="blog.5.image">
+                        </a>
+                        <div class="card-body">
+                            <a href="https://www.udemy.com/course/opencart-3-complete-professional-course/?referralCode=28A1EAEB23CD6D46653B"
+                                target="/blank">
+                                <h5>OpenCart 3 - Complete Project Professional Ecommerce Course</h5>
+                            </a>
+
+
+                        </div>
+                        <div class="card-footer d-flex justify-content-between align-items-center">
+                            <a href="#" class="badge badge-pill badge-danger">Paid Course</a>
+                            <div class="text-small text-muted">Udemy</div>
+                        </div>
+                    </div>
+                </div>
+
+
+
+
+
+
+            </div>
+        </div>
+        <center>
+            <a href="allcourse.html" class="lead"> &gt;&gt; Browse All Courses &lt;&lt; </a>
+        </center>
+    </section>
+    {{-- end section 3 --}}
+
+    {{-- star footer --}}
+
+    <footer class="bg-primary-3 text-white links-white pb-4 footer-1 mt-5 pt-5">
+        <div class="container">
+
+
+
+
+            <div class="row section-title justify-content-center text-center">
+                <div class="col-md-9 col-lg-8 col-xl-7">
+                    <h3 class="display-4">support@easylearningbd.com</h3>
+
+                </div>
+            </div>
+
+
+
+
+            {{-- <div class="divider divider-bottom bg-primary-3 mt-5"></div> --}}
+
+            <hr>
+
+
+
+            <div
+                class="row flex-column flex-lg-row align-items-center justify-content-center justify-content-lg-between text-center text-lg-left">
+                <div class="col-auto">
+                    <div class="d-flex flex-column flex-sm-row align-items-center text-small">
+                        <div class="text-muted">© Copyright 2016 by easy Learning, All Rights Reserved
+                        </div>
+                    </div>
+                </div>
+
+
+
+            </div>
+        </div>
+
+    </footer>
+    {{-- end footer --}}
 </body>
 <script src="{{ asset('js/app.js') }}"></script>
 
