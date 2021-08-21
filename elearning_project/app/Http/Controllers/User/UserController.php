@@ -1,9 +1,12 @@
 <?php
 
-namespace App\Http\Controllers\Userr;
+namespace App\Http\Controllers\User;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Models\Course;
+use App\Models\Enrolment;
+use Auth;
 
 class UserController extends Controller
 {
@@ -14,11 +17,30 @@ class UserController extends Controller
      */
     public function index()
     {
-        //
+        $courses = Course::paginate(12);
+        return view('user.course.index', compact('courses'));
     }
-    public function getDashboard(){
-        return view('user.home');
+
+    public function enrole($id)
+    {
+        if(Enrolment::where('users_id',Auth::user()->id)->where('courses_id',$id)->count() > 0){
+            return redirect()->route('user.enrolenments.all');
+        }
+        $enrolenement = Enrolment::create([
+            'users_id' => Auth::user()->id,
+            'courses_id' => $id
+        ]);
+        return redirect()->route('user.enrolenments.all');
     }
+
+    public function enrolenments (){
+        $enrolenments  = Enrolment::with(['Course'])->where('users_id',Auth::user()->id)->get();
+        return view('user.course.enrolments',compact('enrolenments'));
+    }
+
+    // public function getDashboard(){
+    //     return view('user.home');
+    // }
     /**
      * Show the form for creating a new resource.
      *
@@ -82,6 +104,7 @@ class UserController extends Controller
      */
     public function destroy($id)
     {
-        //
+        Enrolment::where('id',$id)->where('users_id',Auth::user()->id)->delete();
+        return redirect()->route('user.enrolenments.all');
     }
 }

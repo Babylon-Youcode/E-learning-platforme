@@ -3,7 +3,9 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\CourseController;
 use App\Http\Controllers\Admin\TeacherController;
-use App\Http\Controllers\Admin\UserController;
+use App\Http\Controllers\Admin\UserController as AdminController;
+use App\Http\Controllers\User\UserController as UserController;
+
 
 /*
 |--------------------------------------------------------------------------
