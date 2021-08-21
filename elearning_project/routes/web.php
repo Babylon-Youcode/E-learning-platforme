@@ -37,7 +37,7 @@ Route::get('/teacher/register', function(){return view('teacher.register');})->n
     Route::middleware(['auth', 'admin'])->prefix('/admin')->name('admin.')->group(function () {require_once __DIR__.'/custom/admin.php';});
 
     // ** auth + User
-    Route::middleware(['auth', 'user'])->prefix('/user')->group(function () {require_once __DIR__.'/custom/user.php';});
+    Route::middleware(['auth', 'user'])->prefix('/user')->name('user.')->group(function () {require_once __DIR__.'/custom/user.php';});
 
     // ** auth + Teacher
-    Route::middleware(['auth', 'teacher'])->prefix('/teacher')->group(function () {require_once __DIR__.'/custom/teacher.php';});
+    Route::middleware(['auth', 'teacher'])->prefix('/teacher')->name('teacher.')->group(function () {require_once __DIR__.'/custom/teacher.php';});

@@ -226,7 +226,7 @@
                 alt="">
             <div class="ms-2">
                 <h5 class="fs-6 mb-0">
-                    <a class="text-decoration-none">{{ Auth::user()->name }}</a>
+                    {{-- <a class="text-decoration-none">{{ Auth::user()->name }}</a> --}}
                 </h5>
             </div>
         </div>
