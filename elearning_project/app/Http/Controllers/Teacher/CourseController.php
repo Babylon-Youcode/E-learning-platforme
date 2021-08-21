@@ -6,7 +6,7 @@ use App\Models\Course;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Models\User;
-
+use Auth;
 class CourseController extends Controller
 {
     /**
@@ -17,7 +17,7 @@ class CourseController extends Controller
     public function index()
     {
 
-            $courses = Course::with(['User'])->latest()->paginate(5);
+            $courses = Course::where('users_id',Auth::user()->id)->with(['User'])->latest()->paginate(5);
             return view('teacher.course.index', compact('courses'))
             ->with('i',(request()->input('page',1)- 1)*5);
 
@@ -31,8 +31,8 @@ class CourseController extends Controller
      */
     public function create()
     {
-        $courses = Course::where('')->get();
-        return view('teacher.course.create',compact('courses'));
+
+        return view('teacher.course.create');
     }
 
     /**

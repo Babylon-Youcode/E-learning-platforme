@@ -7,7 +7,7 @@
                 <span class="h1 d-block text-info">
                     Cources
                 </span>
-                <span class="h3 d-block text-right">0</span>
+                <span class="h3 d-block text-right">{{ $totalCourses }}</span>
             </div>
         </div>
         <div class="col-4 p-2">
@@ -15,7 +15,7 @@
                 <span class="h1 d-block text-info">
                     Enrolnments
                 </span>
-                <span class="h3 d-block text-right">0</span>
+                <span class="h3 d-block text-right">{{ $totalEnrolments }}</span>
             </div>
         </div>
         <div class="col-4 p-2">
@@ -23,7 +23,7 @@
                 <span class="h1 d-block text-info">
                     Money spent
                 </span>
-                <span class="h3 d-block text-right">0$</span>
+                <span class="h3 d-block text-right">{{ $moneySpent }}$</span>
             </div>
         </div>
     </div>
@@ -37,22 +37,14 @@
                     <th>Price $</th>
                     <th>Detail</th>
                 </tr>
-                {{-- @foreach ($enrolenments as $enrole) --}}
-                <tr>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    {{-- <td>{{ $enrole->Course->name }}</td>
+                @foreach ($enrolenments as $enrole)
+                    <tr>
+                        <td>{{ $enrole->Course->name }}</td>
                         <td>{{ $enrole->Course->date }}</td>
                         <td>{{ $enrole->Course->price }}</td>
                         <td>{{ $enrole->Course->detail }}</td>
-                        <td>
-                            <a class="btn btn-danger"
-                                href="{{ route('user.enrolenments.delete', $enrole->id) }}">Delete</a>
-                        </td> --}}
-                </tr>
-                {{-- @endforeach --}}
+                    </tr>
+                @endforeach
             </table>
         </div>
     </div>

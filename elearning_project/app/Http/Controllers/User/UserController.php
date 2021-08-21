@@ -10,6 +10,18 @@ use Auth;
 
 class UserController extends Controller
 {
+
+    public function home(){
+        $enrolenments  = Enrolment::with(['Course'])->where('users_id',Auth::user()->id)->get();
+        $totalCourses = Course::count();
+        $totalEnrolments = Enrolment::where('users_id',Auth::user()->id)->count();
+
+        $moneySpent = 0;
+        foreach($enrolenments as $enrolenment){
+            $moneySpent += $enrolenment->course->price;
+        }
+        return view('user.home',compact('enrolenments','totalCourses','totalEnrolments','moneySpent'));
+    }
     /**
      * Display a listing of the resource.
      *

@@ -4,7 +4,7 @@
     <div class="row" style="margin-bottom: 20px;">
         <div class="col-lg-12 margin-tb">
             <div class="pull-left">
-                <h3>All Courses</h3>
+                <h3 class="text-white">All Courses</h3>
             </div>
         </div>
     </div>
@@ -14,27 +14,27 @@
             <p>{{ $message }}</p>
         </div>
     @endif
-
-    <table class="table table-bordered datatable">
-        <tr>
-            <th>Course Name</th>
-            <th>Date</th>
-            <th>Price $</th>
-            <th>Detail</th>
-        </tr>
-        @foreach ($enrolenments as $enrole)
+    <div class="bg-white rounded border shadow p-3">
+        <table class="table table-bordered datatable">
             <tr>
-                <td>{{ $enrole->Course->name }}</td>
-                <td>{{ $enrole->Course->date }}</td>
-                <td>{{ $enrole->Course->price }}</td>
-                <td>{{ $enrole->Course->detail }}</td>
-                <td>
-                    <a class="btn btn-danger" href="{{ route('user.enrolenments.delete', $enrole->id) }}">Delete</a>
-                </td>
+                <th>Course Name</th>
+                <th>Date</th>
+                <th>Price $</th>
+                <th>Detail</th>
             </tr>
-        @endforeach
-    </table>
-
+            @foreach ($enrolenments as $enrole)
+                <tr>
+                    <td>{{ $enrole->Course->name }}</td>
+                    <td>{{ $enrole->Course->date }}</td>
+                    <td>{{ $enrole->Course->price }}</td>
+                    <td>{{ $enrole->Course->detail }}</td>
+                    <td>
+                        <a class="btn btn-danger" href="{{ route('user.enrolenments.delete', $enrole->id) }}">Delete</a>
+                    </td>
+                </tr>
+            @endforeach
+        </table>
+    </div>
     {{-- {!! $courses->links() !!} --}}
 
 @endsection

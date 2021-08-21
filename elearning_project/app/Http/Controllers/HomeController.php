@@ -12,13 +12,13 @@ class HomeController extends Controller
 
         switch (Auth::user()->role) {
             case 'USR':
-                return view('user.home');
+                return redirect()->route('user.home');
                 break;
             case 'ADM':
-                return view('admin.home');
+                return redirect()->route('admin.home');
                 break;
             case 'TAC':
-                return view('teacher.home');
+                return redirect()->route('teacher.home');
                 break;
             default:
                 return view('home');

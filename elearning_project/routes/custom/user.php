@@ -2,7 +2,7 @@
 
 // Route::get('/dashboard', [App\Http\Controllers\UserController::class,'getDashboard'])->name('user-dashboard');
 
-Route::get('/home', function(){return view('user.home');})->name('home');
+Route::get('/home', [App\Http\Controllers\User\UserController::class,'home'])->name('home');
 
 
 Route::prefix('/course')->name('course.')->group(function () {
