@@ -30,15 +30,15 @@
                 <td>{{ $teacher->id }}</td>
                 <td>{{ $teacher->name }}</td>
                 <td>{{ $teacher->email }}</td>
-                <td>{{ $teacher->role }}</td>
+                <td>{{ $teacher->role == 'TAC' ? 'Teacher' : 'User' }}</td>
                 <td>
 
 
-                        <a class="btn btn-info" href="{{ route('admin.teacher.show',$teacher->id) }}">Show</a>
+                    <a class="btn btn-info" href="{{ route('admin.teacher.show', $teacher->id) }}">Show</a>
 
-                        <a class="btn btn-primary" href="{{ route('admin.teacher.edit',$teacher->id) }}">Edit</a>
+                    <a class="btn btn-primary" href="{{ route('admin.teacher.edit', $teacher->id) }}">Edit</a>
 
-                        <a class="btn btn-danger" href="{{ route('admin.teacher.destroy',$teacher->id) }}">Delete</a>
+                    <a class="btn btn-danger" href="{{ route('admin.teacher.destroy', $teacher->id) }}">Delete</a>
 
 
 

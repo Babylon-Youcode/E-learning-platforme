@@ -1,6 +1,6 @@
 <?php
 
-Route::get('/home', function(){return view('admin.home');})->name('home');
+Route::get('/home', [App\Http\Controllers\Admin\AdminController::class,'home'])->name('home');
 
 // course
 Route::prefix('/course')->name('course.')->group(function () {

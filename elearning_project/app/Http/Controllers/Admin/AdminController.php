@@ -4,7 +4,9 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-
+use App\Models\User;
+use App\Models\Course;
+use App\Models\Enrolment;
 class AdminController extends Controller
 {
     /**
@@ -12,9 +14,13 @@ class AdminController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function home()
     {
-        //
+        $courses = Course::count();
+        $teachers = User::where('role','TAC')->count();
+        $users = User::where('role','USR')->count();
+        $enrolnments = Enrolment::with(['Course'])->get();
+        return view('admin.home',compact('courses','teachers','users','enrolnments'));
     }
     public function getDashboard(){
         return view('admin.home');

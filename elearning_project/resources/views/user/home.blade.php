@@ -2,15 +2,7 @@
 
 @section('content')
     <div class="row" style="margin-bottom: 20px;">
-        <div class="col-4 p-2">
-            <div class="bg-white shadow rounded border border-info p-3">
-                <span class="h1 d-block text-info">
-                    Cources
-                </span>
-                <span class="h3 d-block text-right">{{ $totalCourses }}</span>
-            </div>
-        </div>
-        <div class="col-4 p-2">
+        <div class="col-6 p-2">
             <div class="bg-white shadow rounded border border-info p-3">
                 <span class="h1 d-block text-info">
                     Enrolnments
@@ -18,7 +10,7 @@
                 <span class="h3 d-block text-right">{{ $totalEnrolments }}</span>
             </div>
         </div>
-        <div class="col-4 p-2">
+        <div class="col-6 p-2">
             <div class="bg-white shadow rounded border border-info p-3">
                 <span class="h1 d-block text-info">
                     Money spent

@@ -3,7 +3,8 @@
 Route::get('/dashboard', [App\Http\Controllers\Teacher\TeacherController::class,'getDashboard'])->name('teacher-dashboard');
 
 Route::get('/', function(){return view('teacher.login');})->name('teacher-login');
-Route::get('/home', function(){return view('teacher.home');})->name('home');
+// Route::get('/home', function(){return view('teacher.home');})->name('home');
+Route::get('/home', [App\Http\Controllers\Teacher\TeacherController::class,'home'])->name('home');
 
 
 Route::prefix('/course')->name('course.')->group(function () {
