@@ -18,6 +18,7 @@ class UserController extends Controller
 
         $moneySpent = 0;
         foreach($enrolenments as $enrolenment){
+            if($enrolenment->Course !== null)
             $moneySpent += $enrolenment->course->price;
         }
         return view('user.home',compact('enrolenments','totalCourses','totalEnrolments','moneySpent'));

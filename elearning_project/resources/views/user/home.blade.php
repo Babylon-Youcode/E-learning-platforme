@@ -30,12 +30,14 @@
                     <th>Detail</th>
                 </tr>
                 @foreach ($enrolenments as $enrole)
-                    <tr>
-                        <td>{{ $enrole->Course->name }}</td>
-                        <td>{{ $enrole->Course->date }}</td>
-                        <td>{{ $enrole->Course->price }}</td>
-                        <td>{{ $enrole->Course->detail }}</td>
-                    </tr>
+                    @if ($enrole->Course !== null)
+                        <tr>
+                            <td>{{ $enrole->Course->name }}</td>
+                            <td>{{ $enrole->Course->date }}</td>
+                            <td>{{ $enrole->Course->price }}</td>
+                            <td>{{ $enrole->Course->detail }}</td>
+                        </tr>
+                    @endif
                 @endforeach
             </table>
         </div>

@@ -38,12 +38,14 @@
                     <th>Detail</th>
                 </tr>
                 @foreach ($enrolnments as $enroled)
-                    <tr>
-                        <td>{{ $enroled->Course->name }}</td>
-                        <td>{{ $enroled->Course->date }}</td>
-                        <td>{{ $enroled->Course->price }}</td>
-                        <td>{{ $enroled->Course->detail }}</td>
-                    </tr>
+                    @if ($enroled->Course !== null)
+                        <tr>
+                            <td>{{ $enroled->Course->name }}</td>
+                            <td>{{ $enroled->Course->date }}</td>
+                            <td>{{ $enroled->Course->price }}</td>
+                            <td>{{ $enroled->Course->detail }}</td>
+                        </tr>
+                    @endif
                 @endforeach
             </table>
         </div>
